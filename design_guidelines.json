@@ -1,0 +1,153 @@
+{
+  "theme": "dark",
+  "archetype": "Performance Pro (Tactical Intelligence Variant)",
+  "design_philosophy": "A government-grade, high-performance command center. The design relies on deep obsidian backgrounds, piercing neon accents (Cyan/Amber) for critical data, and 'Optical Clarity' glassmorphism. It uses a highly dense, tactical 'Control Room' bento grid with zero wasted space, ensuring analytical clarity while feeling undeniably futuristic.",
+  "colors": {
+    "background": {
+      "default": "#050505",
+      "paper": "#0A0A0A",
+      "glass": "rgba(10, 10, 10, 0.6)",
+      "glass_heavy": "rgba(5, 5, 5, 0.8)"
+    },
+    "text": {
+      "primary": "#FFFFFF",
+      "secondary": "#A1A1AA",
+      "muted": "#52525B",
+      "inverse": "#000000"
+    },
+    "border": {
+      "default": "rgba(255, 255, 255, 0.08)",
+      "focus": "rgba(0, 240, 255, 0.5)",
+      "glow": "rgba(0, 240, 255, 0.2)"
+    },
+    "brand": {
+      "primary": "#00F0FF",
+      "primary_hover": "#33F3FF",
+      "primary_muted": "rgba(0, 240, 255, 0.15)",
+      "secondary": "#3B82F6"
+    },
+    "status": {
+      "danger": "#FF3B30",
+      "warning": "#FFB000",
+      "success": "#34C759",
+      "info": "#00F0FF"
+    },
+    "gradients": {
+      "tactical_overlay": "linear-gradient(180deg, rgba(5,5,5,0) 0%, rgba(5,5,5,0.9) 100%)",
+      "cyber_glow": "radial-gradient(circle at 50% 0%, rgba(0,240,255,0.15) 0%, rgba(5,5,5,0) 70%)",
+      "danger_glow": "radial-gradient(circle at 50% 100%, rgba(255,59,48,0.15) 0%, rgba(5,5,5,0) 70%)"
+    }
+  },
+  "typography": {
+    "font_families": {
+      "heading": "'Outfit', sans-serif",
+      "body": "'Manrope', sans-serif",
+      "mono": "'JetBrains Mono', monospace"
+    },
+    "scale": {
+      "h1": "text-4xl sm:text-5xl font-bold tracking-tight",
+      "h2": "text-2xl sm:text-3xl font-bold tracking-tight",
+      "h3": "text-xl sm:text-2xl font-semibold",
+      "h4": "text-lg font-semibold",
+      "body": "text-sm sm:text-base leading-relaxed",
+      "small": "text-xs font-medium uppercase tracking-[0.1em]",
+      "data_large": "text-4xl sm:text-5xl font-mono tracking-tighter"
+    },
+    "rules": {
+      "headings": "Never use Inter for headings. Keep letter-spacing tight.",
+      "numbers": "All KPIs, gauges, and coordinates MUST use the mono font (JetBrains Mono).",
+      "labels": "Overlines and tiny labels MUST be uppercase with wide tracking (tracking-[0.1em])."
+    }
+  },
+  "layout": {
+    "grid_strategy": "MODE B: THE CONTROL ROOM GRID",
+    "spacing_scale": "Dense. Use gap-4 or gap-6 for dashboard widgets. padding should be p-4 or p-6 inside cards.",
+    "sidebar": "Collapsible sidebar (glassmorphism applied). When collapsed, only icons visible. When expanded, icons + text.",
+    "dashboard_grid": "grid-cols-1 md:grid-cols-4 xl:grid-cols-12. Main Map spans col-span-8 row-span-2. KPIs span col-span-3. Side panels span col-span-4."
+  },
+  "effects": {
+    "glassmorphism": {
+      "css": "backdrop-blur-2xl bg-black/60 border border-white/10",
+      "usage": "Use for Sidebar, Main Header, Tooltips, AI Chatbot modal, and sticky elements."
+    },
+    "neumorphism": {
+      "css": "shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),_0_4px_24px_rgba(0,0,0,0.5)] bg-[#0A0A0A] border border-white/5",
+      "usage": "Use for primary data cards and KPI widgets to give them a tactile, embedded hardware feel."
+    },
+    "glow": {
+      "css": "drop-shadow-[0_0_12px_rgba(0,240,255,0.4)]",
+      "usage": "Apply exclusively to active map nodes, critical alerts, and primary prediction gauges."
+    }
+  },
+  "animations": {
+    "framer_motion": {
+      "page_transition": { "initial": { "opacity": 0, "y": 10 }, "animate": { "opacity": 1, "y": 0 }, "transition": { "duration": 0.4 } },
+      "stagger_children": { "transition": { "staggerChildren": 0.05 } },
+      "hover_card": { "whileHover": { "scale": 1.01, "y": -2 }, "transition": { "type": "spring", "stiffness": 300 } },
+      "pulse_glow": { "animate": { "boxShadow": ["0 0 0px rgba(255,59,48,0)", "0 0 20px rgba(255,59,48,0.6)", "0 0 0px rgba(255,59,48,0)"] }, "transition": { "repeat": "Infinity", "duration": 2 } }
+    },
+    "micro_interactions": "Buttons and list items must have background color transitions and text color brightness changes on hover."
+  },
+  "components": {
+    "cards": "Do not use standard white Shadcn cards. Override Card background to #0A0A0A, add the tactile neumorphic shadow, and a 1px white/5 border. Radius MUST be max 8px (rounded-md or rounded-lg).",
+    "buttons": "Primary CTA: Solid Cyan (#00F0FF) with black text. Secondary CTA: Ghost button with Cyan text on hover, border-white/10. Destructive: #FF3B30 with red glow.",
+    "gauges": "Use Recharts or custom SVG for circular probability gauges. The track should be dark grey, the fill should gradient from Cyan to Amber to Red based on threat level.",
+    "interactive_map": "Core element. If possible, integrate react-map-gl (Mapbox) with dark-v11 style. If building visually, use the provided 3D map image with absolute positioned glowing marker dots and a glassmorphism floating overlay panel for region stats.",
+    "ai_chatbot": "Floating glassmorphic window in bottom right. Messages from AI use JetBrains Mono for a terminal/analytical feel. Messages from user are standard Manrope.",
+    "live_news": "Vertical feed on the right or bottom. Use provided police/night images. Add a 'live' pulsing red dot to the header.",
+    "kpis": "Top row. Each KPI needs a label (mono, tiny, uppercase), a massive value (text-4xl, mono), and a trend indicator (+14% in green/red)."
+  },
+  "media": {
+    "backgrounds": [
+      {
+        "url": "https://static.prod-images.emergentagent.com/jobs/10ebf411-2305-456d-9eb3-79b083ca1340/images/e77cb5271831c30a50b55d6b3fd08261d8777567c0a7ee8b8999ffa298a71779.png",
+        "category": "app_background",
+        "description": "Abstract radar/topographic background. Use as a fixed, low-opacity (10-15%) background under the entire dashboard."
+      }
+    ],
+    "maps": [
+      {
+        "url": "https://static.prod-images.emergentagent.com/jobs/10ebf411-2305-456d-9eb3-79b083ca1340/images/ca674216cc35a66bacea30824c889c39b566971a2571506d4928bd5aa730a336.png",
+        "category": "main_map",
+        "description": "3D holographic city map. Use inside the main 'Crime Map' container if an interactive Mapbox/Leaflet isn't rendering. Wrap in overflow-hidden and apply a subtle zoom animation."
+      }
+    ],
+    "news_thumbnails": [
+      {
+        "url": "https://images.unsplash.com/photo-1759933633339-2382db138c2f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjV8MHwxfHNlYXJjaHwzfHxwb2xpY2UlMjBsaWdodHMlMjBuaWdodCUyMGNpdHl8ZW58MHx8fHwxNzc2Mjc4MDEzfDA&ixlib=rb-4.1.0&q=85",
+        "category": "news_image",
+        "description": "Police car flashing lights"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1679609711057-4d08129b5868?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjV8MHwxfHNlYXJjaHwyfHxwb2xpY2UlMjBsaWdodHMlMjBuaWdodCUyMGNpdHl8ZW58MHx8fHwxNzc2Mjc4MDEzfDA&ixlib=rb-4.1.0&q=85",
+        "category": "news_image",
+        "description": "Motorcycles/Patrol night"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1660142127899-2121326e118f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjV8MHwxfHNlYXJjaHwxfHxwb2xpY2UlMjBsaWdodHMlMjBuaWdodCUyMGNpdHl8ZW58MHx8fHwxNzc2Mjc4MDEzfDA&ixlib=rb-4.1.0&q=85",
+        "category": "news_image",
+        "description": "Police car on street"
+      }
+    ],
+    "avatars": [
+      {
+        "url": "https://images.unsplash.com/photo-1542866203-71304d7c6303?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNDR8MHwxfHNlYXJjaHwyfHxzZWN1cml0eSUyMGFuYWx5c3QlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzYyNzgwMTR8MA&ixlib=rb-4.1.0&q=85",
+        "category": "admin_avatar",
+        "description": "Female security analyst"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1752737780254-7fa0f9f2650a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNDR8MHwxfHNlYXJjaHwzfHxzZWN1cml0eSUyMGFuYWx5c3QlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzYyNzgwMTR8MA&ixlib=rb-4.1.0&q=85",
+        "category": "admin_avatar",
+        "description": "Male security analyst"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1752738372136-2602aaafdcb7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNDR8MHwxfHNlYXJjaHwxfHxzZWN1cml0eSUyMGFuYWx5c3QlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzYyNzgwMTR8MA&ixlib=rb-4.1.0&q=85",
+        "category": "admin_avatar",
+        "description": "Male security analyst alternative"
+      }
+    ]
+  },
+  "testing": {
+    "attributes": "All interactive elements, gauges, inputs, and map regions MUST include a 'data-testid' attribute (e.g., 'data-testid=\"crime-map-container\"' or 'data-testid=\"predict-button\"')."
+  }
+}

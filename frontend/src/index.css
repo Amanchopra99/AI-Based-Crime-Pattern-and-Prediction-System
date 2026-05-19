@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Manrope:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #050505;
+    color: #ffffff;
+}
+
+code {
+    font-family: 'JetBrains Mono', source-code-pro, Menlo, Monaco, Consolas, monospace;
+}
+
+@layer base {
+    :root {
+        --background: 0 0% 2%;
+        --foreground: 0 0% 98%;
+        --card: 0 0% 4%;
+        --card-foreground: 0 0% 98%;
+        --popover: 0 0% 4%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 186 100% 50%;
+        --primary-foreground: 0 0% 0%;
+        --secondary: 0 0% 6%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 0 0% 6%;
+        --muted-foreground: 0 0% 45%;
+        --accent: 186 100% 50%;
+        --accent-foreground: 0 0% 0%;
+        --destructive: 4 90% 58%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 8%;
+        --input: 0 0% 8%;
+        --ring: 186 100% 50%;
+        --radius: 0.5rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-[#050505] text-white;
+    }
+    html, body, #root {
+        height: 100%;
+    }
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit; margin-right: inherit; margin-top: inherit; margin-bottom: inherit;
+        padding-left: inherit; padding-right: inherit; padding-top: inherit; padding-bottom: inherit;
+        column-gap: inherit; row-gap: inherit; gap: inherit;
+        border-left-width: inherit; border-right-width: inherit; border-top-width: inherit; border-bottom-width: inherit;
+        border-left-style: inherit; border-right-style: inherit; border-top-style: inherit; border-bottom-style: inherit;
+        border-left-color: inherit; border-right-color: inherit; border-top-color: inherit; border-bottom-color: inherit;
+    }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+/* Leaflet dark popup override */
+.dark-popup .leaflet-popup-content-wrapper {
+  background: #0A0A0A !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
+}
+.dark-popup .leaflet-popup-tip { background: #0A0A0A !important; }
+.leaflet-popup-content-wrapper { background: #0A0A0A !important; color: #fff !important; border: 1px solid rgba(255,255,255,0.1) !important; border-radius: 8px !important; }
+.leaflet-popup-tip { background: #0A0A0A !important; }
+.leaflet-popup-close-button { color: #A1A1AA !important; }
+
+/* Shimmer animation */
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+
+
